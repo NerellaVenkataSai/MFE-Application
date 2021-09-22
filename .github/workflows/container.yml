@@ -20,6 +20,8 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm install
       - run: npm run build
+        env:
+          MARKETING_DOMAIN: "https://lucid-euler-c30b19.netlify.app"
       # deploy site to netlify using secrets created on repository
       - uses: netlify/actions/cli@master 
         env:
