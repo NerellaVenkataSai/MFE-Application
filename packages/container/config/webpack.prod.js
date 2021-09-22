@@ -3,9 +3,8 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const packageJson = require('../package.json');
 const commonConfig = require('./webpack.common');
 
-const domain = process.env.MARKETING_APP_DOMAIN;
+const domain = process.env.MARKETING_DOMAIN;
 
-console.log(domain)
 const prodConfig = {
   mode: 'production',
   output: {
@@ -16,7 +15,7 @@ const prodConfig = {
       name: 'container',
       remotes: {
         // marketing@http://localhost:8081/remoteEntry.js here products is the name given in products application webpack
-        Marketing: 'marketing@https://lucid-euler-c30b19.netlify.app/remoteEntry.js',
+        Marketing: `marketing@${domain}/remoteEntry.js`,
       },
       shared: packageJson.dependencies,
     }),
