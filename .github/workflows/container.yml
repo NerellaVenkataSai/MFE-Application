@@ -14,7 +14,8 @@ defaults:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    env:
+      MARKETING_APP_DOMAIN: https://lucid-euler-c30b19.netlify.app
     steps:
       - uses: actions/checkout@v2
       - run: npm install
