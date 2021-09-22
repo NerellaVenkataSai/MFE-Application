@@ -13,7 +13,7 @@ const prodConfig = {
       name: 'container',
       remotes: {
         // marketing@http://localhost:8081/remoteEntry.js here products is the name given in products application webpack
-        Marketing: 'marketing@http://localhost:8081/remoteEntry.js',
+        Marketing: 'marketing@https://lucid-euler-c30b19.netlify.app/remoteEntry.js',
       },
       shared: packageJson.dependencies,
     }),
