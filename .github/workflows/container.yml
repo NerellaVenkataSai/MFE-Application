@@ -19,7 +19,7 @@ jobs:
       - run: npm install
       - run: npm run build
         env:
-          MARKETING_DOMAIN: "https://lucid-euler-c30b19.netlify.app"
+          MARKETING_DOMAIN: "https://mfe-marketing.netlify.app"
       # deploy site to netlify using secrets created on repository
       - uses: netlify/actions/cli@master 
         env:
