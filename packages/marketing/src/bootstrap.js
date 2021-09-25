@@ -8,8 +8,10 @@ const mount = (el, { onNavigate, defaultHistory }) => {
 
   const history = defaultHistory || createMemoryHistory();
   
+  console.log('onNavigate----', onNavigate)
   // child to parent communincation (Marketing to container)
   if(onNavigate) {
+    console.log('onNavigate 1----', onNavigate)
     history.listen(onNavigate);
   }
 
