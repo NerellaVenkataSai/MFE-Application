@@ -34,13 +34,8 @@ const mount = (el, { onNavigate, defaultHistory }) => {
 if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'production') {
   const devRoot = document.querySelector('#_marketing-dev-root');
   
-  // for dev we will use Browser History to make dev easier
-  let defaultHistory = {}
-  if(process.env.NODE_ENV === 'development') {
-    defaultHistory = createBrowserHistory()
-  }
   if (devRoot) {
-    mount(devRoot, {defaultHistory});
+    mount(devRoot, { defaultHistory: createBrowserHistory() });
   }
 }
 
