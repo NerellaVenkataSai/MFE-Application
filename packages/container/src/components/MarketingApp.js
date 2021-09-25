@@ -14,13 +14,28 @@
 
 import { mount } from 'Marketing/marketingApp';
 import React, { useRef, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 export default () => {
   const ref = useRef(null);
+  const history = useHistory();
+  // const location = useLocation();
 
   useEffect(() => {
-    mount(ref.current);
-  });
+   const {onParentNavigate} =  mount(ref.current, {
+      // updating container path when child path updates (subApp -> container)
+      onNavigate: ({ pathname: nextPathName }) => {
+        const { pathname } = history.location;
+
+        if (pathname !== nextPathName) {
+          history.push(nextPathName);
+        }
+      }
+    });
+
+    // parent to child communication when path updates in container it will pass update to subApplications
+    history.listen(onParentNavigate);
+  }, []);
 
   return <div ref={ref} />;
 };
