@@ -20,6 +20,7 @@ export default ({ history }) => {
           <Switch>
             <Route path="/auth/signin" component={Signin} />
             <Route path="/auth/signup" component={Signup} />
+            <Route path="/" component={Signin} />
           </Switch>
         </Router>
       </StylesProvider>
