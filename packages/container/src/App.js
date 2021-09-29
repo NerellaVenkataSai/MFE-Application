@@ -7,6 +7,7 @@ import {
 import { Switch, Route } from 'react-router-dom';
 
 import MarketingApp from './components/MarketingApp';
+import AuthApp from './components/AuthApp';
 import Header from './components/Header';
 
 // Generating random className in production starting with 'co' to avoid conflicting with other applications
@@ -20,7 +21,7 @@ export default () => {
       <StylesProvider generateClassName={generateClassName}>
       <Header />
           <Switch>
-            {/* <Route path="/auth/" component={Signin} /> */}
+            <Route path="/auth/" component={AuthApp} />
             <Route path="/" component={MarketingApp} />
           </Switch>
       </StylesProvider>

@@ -8,6 +8,7 @@ const mount = (el, { onNavigate, defaultHistory }) => {
   const history = defaultHistory || createMemoryHistory();
 
   if (onNavigate) {
+    console.log('onNavigate Auth 1', history.location.pathname);
     history.listen(onNavigate);
   }
 

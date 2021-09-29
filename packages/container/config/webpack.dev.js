@@ -24,6 +24,7 @@ const devConfig = {
       remotes: {
         // marketing@http://localhost:8081/remoteEntry.js here products is the name given in products application webpack
         Marketing: 'marketing@http://localhost:8081/remoteEntry.js',
+        Auth: 'auth@http://localhost:8082/remoteEntry.js',
       },
       shared: packageJson.dependencies,
     })
