@@ -21,7 +21,7 @@ export default () => {
       <StylesProvider generateClassName={generateClassName}>
       <Header />
           <Switch>
-            <Route path="/auth/" component={AuthApp} />
+            {/* <Route path="/auth/" component={AuthApp} /> */}
             <Route path="/" component={MarketingApp} />
           </Switch>
       </StylesProvider>
