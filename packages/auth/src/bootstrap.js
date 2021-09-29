@@ -40,7 +40,7 @@ if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'producti
   const devRoot = document.querySelector('#_auth-dev-root');
 
   if (devRoot) {
-    mount(devRoot, { defaultHistory: createBrowserHistory(), initialPath: 'auth/signin' });
+    mount(devRoot, { defaultHistory: createBrowserHistory() });
   }
 }
 
