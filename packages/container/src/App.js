@@ -4,6 +4,7 @@ import {
   StylesProvider,
   createGenerateClassName,
 } from '@material-ui/core/styles';
+import { Switch, Route } from 'react-router-dom';
 
 import MarketingApp from './components/MarketingApp';
 import Header from './components/Header';
@@ -17,10 +18,11 @@ export default () => {
   return (
     <BrowserRouter>
       <StylesProvider generateClassName={generateClassName}>
-        <div>
-          <Header />
-          <MarketingApp />
-        </div>
+      <Header />
+          <Switch>
+            {/* <Route path="/auth/" component={Signin} /> */}
+            <Route path="/" component={MarketingApp} />
+          </Switch>
       </StylesProvider>
     </BrowserRouter>
   );

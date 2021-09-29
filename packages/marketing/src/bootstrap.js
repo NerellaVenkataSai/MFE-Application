@@ -4,14 +4,22 @@ import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 
 // Mount function to start up the app
-const mount = (el, { onNavigate, defaultHistory }) => {
+const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 
-  const history = defaultHistory || createMemoryHistory();
+  /**  Default memory history path is '/' 
+   *   so if this application has specific path to load like 'auth/signup' 
+   *   then child application wont loads initially in container(host) as the child app has initial route as '/'
+   *   so it loads on second time when we try to change the path on click event.
+   *   To resolve that issue we will initialize memoryRoute with path
+   * 
+  */
+  const history = defaultHistory || createMemoryHistory({
+    initialEntries: [initialPath],
+  });
   
-  console.log('onNavigate----', onNavigate)
   // child to parent communincation (Marketing to container)
   if(onNavigate) {
-    console.log('onNavigate 1----', onNavigate)
+    console.log('onNavigate 1----')
     history.listen(onNavigate);
   }
 
@@ -21,6 +29,7 @@ const mount = (el, { onNavigate, defaultHistory }) => {
     // parent to child communication, when parent route (container) updates -> subApp routes updates
     onParentNavigate({ pathname: nextPathname }) {
       const { pathname } = history.location;
+      console.log('onParentNavigate ----')
 
       if (pathname !== nextPathname) {
         history.push(nextPathname);
