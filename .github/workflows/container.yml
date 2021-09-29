@@ -20,6 +20,7 @@ jobs:
       - run: npm run build
         env:
           MARKETING_DOMAIN: "https://mfe-marketing.netlify.app"
+          AUTH_DOMAIN: "https://mfe-auth.netlify.app"
       # deploy site to netlify using secrets created on repository
       - uses: netlify/actions/cli@master 
         env:

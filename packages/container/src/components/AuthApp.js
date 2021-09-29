@@ -31,7 +31,7 @@
            history.push(nextPathName);
          }
        },
-    //    initialPath: history.location.pathname
+       initialPath: history.location.pathname
      });
  
      // parent to child communication when path updates in container it will pass update to subApplications
