@@ -6,11 +6,16 @@ const packageJson = require('../package.json');
 
 const devConfig = {
   mode: 'development',
+  output: {
+    publicPath: 'http://localhost:8082/',
+  },
   devServer: {
     port: 8082,
-    historyApiFallback: {
-      index: 'index.html',
-    },
+    // updating only publicPath is not sufficient to fetch main.js in nested routes like auth/sigin, we need make below changes as well
+    historyApiFallback: true,
+    // historyApiFallback: {
+    //   index: '/index.html',
+    // },
   },
   plugins: [
     new ModuleFederationPlugin({
