@@ -23,7 +23,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
     history.listen(onNavigate);
   }
 
-  ReactDOM.render(<App history={history}/>, el);
+  ReactDOM.render(<div>In auth</div>, el);
 
   return {
     // parent to child communication, when parent route (container) updates -> subApp routes updates
@@ -41,9 +41,10 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 // If we are in development and in isolation,
 // call mount immediately
 if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'production') {
-  const devRoot = document.querySelector('_auth-dev-root');
+  const devRoot = document.querySelector('#_auth-dev-root');
   
   if (devRoot) {
+    console.log('in dev root');
     mount(devRoot, { defaultHistory: createBrowserHistory() });
   }
 }

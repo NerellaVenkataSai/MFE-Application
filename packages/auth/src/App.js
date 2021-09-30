@@ -13,10 +13,13 @@ const generateClassName = createGenerateClassName({
 });
 
 export default ({ history }) => {
+  console.log('in App');
   return (
     <div>
-      <StylesProvider generateClassName={generateClassName}>
-        <div>in auth</div>
+      <div>in auth</div>
+
+      {/* <StylesProvider generateClassName={generateClassName}>
+        <div>in auth</div> */}
         {/* <Router history={history}> */}
           {/* <Switch> */}
             {/* <Route path="/auth/signin" component={Signin} />
@@ -24,7 +27,7 @@ export default ({ history }) => {
             {/* <Route exact path="/" component={Signin} /> */}
           {/* </Switch> */}
         {/* </Router> */}
-      </StylesProvider>
+      {/* </StylesProvider> */}
     </div>
   );
 };
