@@ -8,7 +8,7 @@ const prodConfig = {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].js',
-    publicPath: 'auth/latest'
+    publicPath: 'https://blissful-bhabha-813a91.netlify.app/'
   },
   plugins: [
     new ModuleFederationPlugin({
