@@ -4,11 +4,11 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const packageJson = require('../package.json');
 const commonConfig = require('./webpack.common');
 
+// TO-DO need to check how to load auth application on load in production env in dev env we are using publicPath and historyApiFallback for loading app on auth/signin route
 const prodConfig = {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].js',
-    // publicPath: 'https://blissful-bhabha-813a91.netlify.app/'
   },
   plugins: [
     new ModuleFederationPlugin({
