@@ -19,7 +19,6 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   
   // child to parent communincation (Marketing to container)
   if(onNavigate) {
-    console.log('onNavigate 1----')
     history.listen(onNavigate);
   }
 
@@ -29,7 +28,6 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
     // parent to child communication, when parent route (container) updates -> subApp routes updates
     onParentNavigate({ pathname: nextPathname }) {
       const { pathname } = history.location;
-      console.log('onParentNavigate ----')
 
       if (pathname !== nextPathname) {
         history.push(nextPathname);

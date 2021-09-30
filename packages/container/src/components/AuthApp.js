@@ -26,7 +26,7 @@
        // updating container path when child path updates (subApp -> container)
        onNavigate: ({ pathname: nextPathName }) => {
          const { pathname } = history.location;
-         console.log('onNavigate Auth', pathname, nextPathName);
+         
          if (pathname !== nextPathName) {
            history.push(nextPathName);
          }
