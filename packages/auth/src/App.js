@@ -16,13 +16,14 @@ export default ({ history }) => {
   return (
     <div>
       <StylesProvider generateClassName={generateClassName}>
-        <Router history={history}>
-          <Switch>
+        <div>in auth</div>
+        {/* <Router history={history}> */}
+          {/* <Switch> */}
             {/* <Route path="/auth/signin" component={Signin} />
             <Route path="/auth/signup" component={Signup} /> */}
-            <Route exact path="/" component={Signin} />
-          </Switch>
-        </Router>
+            {/* <Route exact path="/" component={Signin} /> */}
+          {/* </Switch> */}
+        {/* </Router> */}
       </StylesProvider>
     </div>
   );
