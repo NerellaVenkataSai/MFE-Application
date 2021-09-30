@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import {
   StylesProvider,
@@ -6,8 +6,8 @@ import {
 } from '@material-ui/core/styles';
 import { Switch, Route } from 'react-router-dom';
 
-import MarketingApp from './components/MarketingApp';
-import AuthApp from './components/AuthApp';
+const MarketingLazy = lazy(() => import('./components/MarketingApp'));
+const AuthLazy = lazy(() => import('./components/AuthApp'));
 import Header from './components/Header';
 
 // Generating random className in production starting with 'co' to avoid conflicting with other applications
@@ -20,10 +20,12 @@ export default () => {
     <BrowserRouter>
       <StylesProvider generateClassName={generateClassName}>
       <Header />
+        <Suspense fallback={<div>...loading</div>}>
           <Switch>
-            <Route path="/auth/" component={AuthApp} />
-            <Route path="/" component={MarketingApp} />
+            <Route path="/auth/" component={AuthLazy} />
+            <Route path="/" component={MarketingLazy} />
           </Switch>
+        </Suspense>
       </StylesProvider>
     </BrowserRouter>
   );
