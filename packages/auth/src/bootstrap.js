@@ -23,7 +23,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
     history.listen(onNavigate);
   }
 
-  ReactDOM.render(<div>In auth</div>, el);
+  ReactDOM.render(<App history={history}/>, el);
 
   return {
     // parent to child communication, when parent route (container) updates -> subApp routes updates
