@@ -10,6 +10,9 @@ const prodConfig = {
     filename: '[name].[contenthash].js',
     publicPath: 'https://blissful-bhabha-813a91.netlify.app/'
   },
+  devServer: {
+    historyApiFallback: true,
+  },
   plugins: [
     new ModuleFederationPlugin({
       name: 'auth',
